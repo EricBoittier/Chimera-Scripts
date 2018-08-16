@@ -1,6 +1,6 @@
 # Chimera-Scripts
 
-## Adding Hydrogens
+## addHydrogens.py
 
 When saving a molecule from the Protein Data Bank (PDB), if the structure is the result of a x-ray crystallography experiment, the structure will not include the hydrogens. This is because x-ray crystallography measures the &quot;electron density&quot; of a molecule, and hydrogen (the smallest atom) is invisible to this technique. This can also lead to a host of ambiguities, including difficult assigning between oxygen and nitrogen, as these two atoms are similar in regards to electron density.
 
