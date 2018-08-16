@@ -1,29 +1,13 @@
 # Chimera-Scripts
+
+#2 Adding Hydrogens
+
 When saving a molecule from the Protein Data Bank (PDB), if the structure is the result of a x-ray crystallography experiment, the structure will not include the hydrogens. This is because x-ray crystallography measures the &quot;electron density&quot; of a molecule, and hydrogen (the smallest atom) is invisible to this technique. This can also lead to a host of ambiguities, including difficult assigning between oxygen and nitrogen, as these two atoms are similar in regards to electron density.
 
 This exclusion of hydrogen is sad, however; many chemistry structure visualization tools can automatically add this atom back in. UCFS Chimera is one such tool, and since its inclusion of the popular programming language, Python, Chimera has opened the door to large scale, automated structure editing.
 
 By saving and running the code below in Chimera, the program will add hydrogens to all structures in the same directory as the python file, and save these as new files.
 
-{% highlight python %}
-
-from chimera import runCommand
-from os import *
-
-todo = []
-
-for ligand in listdir("."):
-    todo.append(ligand)
-
-
-for ligand in todo:
-    if ligand.__contains__(".pdb"):
-        runCommand("open {}".format(ligand))
-        runCommand("addh")
-        runCommand("write 0 {}_withHs.pdb".format(ligand[0:-4]))
-        runCommand("delete")
-
-{% endhighlight %}
 
 1. Berman, H. M.; Westbrook, J.; Feng, Z.; Gilliland, G.; Bhat, T. N.; Weissig, H.; Shindyalov, I. N.; Bourne, P. E., The Protein Data Bank. _Nucleic Acids Research_ **2000,** _28_ (1), 235-242.
 
